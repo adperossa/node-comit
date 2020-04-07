@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discography</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eadaa2;
+    }
+
+    h1 {
+      color: #5c573e;
+    }
+
+    /* Quiero que los links visitados sean verdes y los no visitados sean rojos, y que al
+        clickearlos se vean amarillos. Para que esto funcione bien, el orden de estos selectores
+        no puede ser cualquiera. Es un caso bastante específico el estilado de links, pueden leer
+        detalles en https://developer.mozilla.org/es/docs/Web/CSS/:visited */
+    a:link {
+      color: red;
+    }
+
+    a:visited {
+      color: green;
+    }
+
+    a:active {
+      color: yellow;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th:first-child,
+    th:last-child {
+      width: 10%;
+    }
+
+    table,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+
+    thead {
+      background-color: #960200;
+      color: white;
+    }
+
+    tbody > tr:nth-child(odd) {
+      background-color: #d5c794;
+    }
+
+    td img {
+      height: 100px;
+    }
+
+    td img:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Albums</h1>
+  <table cellpadding="4px" cellspacing="0px" border="1px">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Band</th>
+        <th>Title</th>
+        <th>Cover</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://en.wikipedia.org/wiki/1995" target="_blank">1995</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/No_Doubt">No Doubt</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/Tragic_Kingdom">Tragic Kingdom</a></td>
+        <td><img  src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/No_Doubt_-_Tragic_Kingdom.png/220px-No_Doubt_-_Tragic_Kingdom.png" />
+        </td>
+      </tr>
+      <tr>
+        <td><a href="https://en.wikipedia.org/wiki/2000" target="_blank">2000</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/No_Doubt">No Doubt</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/Return_of_Saturn">Return of Saturn</a></td>
+        <td><img  src="https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Return_of_Saturn.png/220px-Return_of_Saturn.png" />
+        </td>
+      </tr>
+      <tr>
+        <td><a href="https://en.wikipedia.org/wiki/2001" target="_blank">2001</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/No_Doubt">No Doubt</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/Rock_Steady_(album)">Rock Steady</a></td>
+        <td><img  src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/No_Doubt_-_Rock_Steady.png/220px-No_Doubt_-_Rock_Steady.png" />
+        </td>
+      </tr>
+      <tr>
+        <td><a href="https://en.wikipedia.org/wiki/2012" target="_blank">2012</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/No_Doubt">No Doubt</a></td>
+        <td><a target="_blank" href="https://en.wikipedia.org/wiki/Push_and_Shove_(album)">Push and Shove</a></td>
+        <td><img  src="https://upload.wikimedia.org/wikipedia/en/thumb/7/79/Push_and_Shove_-_No_Doubt_album_cover.jpg/220px-Push_and_Shove_-_No_Doubt_album_cover.jpg" />
+        </td>
+      </tr>
+      <tr>
+          <td><a href="https://en.wikipedia.org/wiki/2000" target="_blank">2000</a></td>
+          <td><a target="_blank" href="https://en.wikipedia.org/wiki/Morcheeba">Morcheeba</a></td>
+          <td><a target="_blank" href="https://en.wikipedia.org/wiki/Fragments_of_Freedom">Fragments of Freedom</a></td>
+          <td><img  src="https://upload.wikimedia.org/wikipedia/en/c/c2/Morcheeba_-_Fragments_of_Freedom.jpg" />
+          </td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/2002" target="_blank">2002</a></td>
+            <td><a target="_blank" href="https://en.wikipedia.org/wiki/Red_Hot_Chili_Peppers">Red Hot Chili Peppers</a></td>
+            <td><a target="_blank" href="https://en.wikipedia.org/wiki/By_the_Way">By The Way</a></td>
+            <td><img  src="https://upload.wikimedia.org/wikipedia/en/2/23/Rhcp9.jpg" />
+            </td>
+          </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
