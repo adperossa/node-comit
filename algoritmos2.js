@@ -47,6 +47,10 @@ alfabético. Ej: Si le paso "mates", "perro", "alfajor" debería
 retornar a: 3, r: 3, e: 2.
 */
 
+/**
+ * Toma una lista de palabras y devuelve las letras mas usadas
+ * @param {array} words Un array de strings
+ */
 function getMostUsedLetters(words) {
 
   if (words.length < 2 || words.length > 6) { // valido cantidad de palabras
