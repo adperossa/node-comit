@@ -100,6 +100,6 @@ function getMostUsedLetters(words) {
     return b.conteo - a.conteo;
   })
 
-  console.log(resultsArray.slice(0, 2));
+  console.log(resultsArray.slice(0, 3));
   
 }
