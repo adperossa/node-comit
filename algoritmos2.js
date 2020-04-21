@@ -65,41 +65,51 @@ function getMostUsedLetters(words) {
     }
   }
 
-  let letters = words.join("").split(""); // creo un array de todas las letras usadas
-  let lettersCount = {};
-  let tempArray = [];
-  let resultsArray = [];
-
-  for (let i = 0; i < letters.length; i++) { // acumulo el conteo para cada letra en un objeto
-    let currentLetter = letters[i];
-
-    //si aun no agregue esa letra al objeto, inicializo esa propiedad para que no 
-    //sea undefined y le pueda sumar, sino el paso siguiente daria NaN
-    if (lettersCount[currentLetter] === undefined) lettersCount[currentLetter] = 0;
-
-    // por cada letra encontrada, sumarle uno a su contador en el objeto
-    lettersCount[currentLetter] += 1;
-  }
-
-  // guardo las propiedades del objeto (letras) en un array intermedio para poder iterarlo
-  // seria mejor usar for..in
-  tempArray = Object.keys(lettersCount);
-
-  //armo un nuevo array de objetos, de forma [{letra: a, conteo: 3},...]
-  //saco cada letra encontrada usando el array temporal de antes, y el 
-  //valor lo saco del primer objeto con todas las letras
-  for (let i = 0; i < tempArray.length; i++) {
-    let current = tempArray[i];
-    let letterCount = { letra: current, conteo: lettersCount[current] };
-
-    resultsArray.push(letterCount);
-  }
-
-  //ordeno el array de objetos que obtuve de mayor a menor, segun el valor de cada letra
-  resultsArray.sort(function(a, b) {
-    return b.conteo - a.conteo;
-  })
-
-  console.log(resultsArray.slice(0, 3));
+  let letters = words.join("").split("").sort(); // creo un array ordenado de todas las letras usadas
   
+  let processedLetters = "";
+  let lettersCount = [];
+
+  //realizo el conteo de cada letra y lo almaceno en el array de objetos lettersCount
+  for (let i = 0; i < letters.length; i++) {
+    let currentLetter = letters[i];
+    
+    //chequeo si es la primera vez que encuentro esta letra
+    if (processedLetters.indexOf(currentLetter) < 0) {
+
+      lettersCount.push({ letter: currentLetter, count: 1}); //es nueva, agrego la letra al array
+      processedLetters += currentLetter;
+
+    } else { // no es nueva, busco su objeto correspondiente y le incremento el contador
+      
+      for (let j = 0; j < lettersCount.length; j++) {
+        if (lettersCount[j].letter === currentLetter) {
+          lettersCount[j].count++;
+        }
+      }
+
+    }
+  }
+
+  //inicializo arbitrariamente las tres variables que contendran las letras mas comunes
+  //asumo que hay al menos tres letras distintas
+  let mock = { letter: "x", count: 0 };
+  let primera = mock, segunda = mock, tercera = mock;
+  
+  //ordenamiento
+  for (let i = 0; i < lettersCount.length; i++) {
+    if (lettersCount[i].count > primera.count) {
+      tercera = segunda;
+      segunda = primera;
+      primera = lettersCount[i];
+    } else if (lettersCount[i].count > segunda.count) {
+      tercera = segunda;
+      segunda = lettersCount[i];
+    } else if (lettersCount[i].count > tercera.count) {
+      tercera = lettersCount[i];
+    }
+  }
+
+  console.log(primera,segunda,tercera);
+
 }
