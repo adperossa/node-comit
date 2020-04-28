@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Eventos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 70%;
+      margin: 10% auto;
+      text-align: center;
+    }
+
+    .row {
+      display: block;
+    }
+
+    .box {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      border: 1px solid black;
+      background-color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+  Armar una página HTML con 36 divs dispuestos en una cuadrícula de 6x6. Inicialmente 
+  cada div tiene borde negro y relleno blanco. Agregar a cada div un evento click que, 
+  al clickearlo, ese div (ese cuadrado) se ponga negro, y al pasarle por encima con el 
+  mouse se ponga blanco de nuevo (pasar por encima -mouseover- sería la forma de 
+  "limpiar" el dibujo).
+  -->
+  <div class="container">
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="row">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+  <script>
+    let boxes = document.getElementsByClassName("box");
+
+    for (let i = 0; i < boxes.length; i++) {
+      const box = boxes[i];
+      box.addEventListener("click", function() {
+        box.style.backgroundColor = "black";
+      });
+
+      box.addEventListener("mouseover", function() {
+        box.style.backgroundColor = "white";
+      })
+    }
+  </script>
+</body>
+
+</html>

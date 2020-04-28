@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 0.3px;
+      background-color: #DAD6CA;
+    }
+
+    form {
+      background-color: #EFEAC5;
+      border-radius: 10px;
+      max-width: 500px;
+      max-height: 500px;
+      padding: 20px;
+      margin: 10% auto;
+      width: 80%;
+    }
+
+    input {
+      margin: 15px auto;
+      display: block;
+      width: 55%;
+      padding: 15px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+    }
+
+    label {
+      text-align: center;
+      width: 55%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button {
+      font-size: 1em;
+      letter-spacing: 1px;
+      color: white;
+      width: 55%;
+      display: block;
+      margin: 15px auto;
+      padding: 10px 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #4D6160;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    Armar una página HTML con un input de tipo texto y dos botones. Se propone en ese 
+    input ingresar "apellido(s), nombre(s)". El primer botón, titulado "Validar", va a 
+    pintar el borde del input de verde o de rojo según el contenido sea válido (para ser 
+    válido tiene que tener una (y solo una) coma, al menos 2 letras antes de la coma y al 
+    menos otras dos letras después de la coma (sin contar espacios que separen la coma del
+    apellido). El segundo botón, titulado "Formatear", va a mostrar en un  <p> (que 
+    inicialmente está vacío) el mismo nombre pero escrito como "nombre(s) apellido(s)", 
+    es decir, invertidos y sin la coma. Pero solo los va a mostrar si la validación fue 
+    buena. Si la validación fue mala, muestra un texto (en el mismo p) que dice "dato no 
+    válido".
+  -->
+  <form action="#">
+    <label for="name">Ingresar Nombre y Apellido:</label>
+    <input type="text" name="name" id="name" placeholder="apellido(s), nombre(s)">
+    <button type="button" id="valBtn">Validar</button>
+    <button type="button" id="formatBtn">Formatear</button>
+    <hr>
+    <p id="formatted"></p>
+  </form>
+  <script>
+    let nameInput = document.getElementById("name");
+    let valBtn = document.getElementById("valBtn");
+    let formatBtn = document.getElementById("formatBtn");
+    let formatP = document.getElementById("formatted");
+
+    function isValidInput(input) {
+      inputWords = input.split(",");
+
+      if (inputWords.length !== 2) return false;
+
+      inputWords[0] = inputWords[0].trim();
+      inputWords[1] = inputWords[1].trim();
+
+      if (inputWords[0].length < 2 || inputWords[1].length < 2) return false;
+
+      return inputWords;
+    }
+
+    valBtn.addEventListener("click", function () {
+      if (isValidInput(nameInput.value)) {
+        nameInput.style.border = "2px solid green"
+      } else {
+        nameInput.style.border = "2px solid red"
+      }
+    })
+
+    formatBtn.addEventListener("click", function () {
+      let input = isValidInput(nameInput.value);
+      if (input) {
+        formatP.textContent = input[1] + " " + input[0];
+      } else {
+        formatP.textContent = "";
+      }
+    })
+  </script>
+</body>
+
+</html>
