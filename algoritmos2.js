@@ -110,5 +110,52 @@ function getMostUsedLetters(words) {
   }
 
   console.log(primera,segunda,tercera);
+}
 
+
+/* Escribir una función que reciba por parámetro una palabra y valide si es un mail. Para 
+ser considerado un mail, diremos que tiene que:
+Contener un @ (y solo uno)
+Antes del @ (la "etiqueta") tener por lo menos 2 caracteres.
+Dicha etiqueta no puede contener espacios ni los signos " ' ` , ; : [ ] { } = + \
+Después del @ (el "dominio") debe tener por lo menos un punto, por lo menos 3 caracteres 
+antes del punto y por lo menos 2 caracteres después del punto.
+*/
+
+/**
+ * Chequea si un string es un email válido de acuerdo a los requerimientos
+ * @param {string} input El string para validar
+ * @returns {boolean}
+ */
+function isValidEmail(input) {
+  const invalidChars = [" ", "\"", "'", "`", ",", ";", ":", "[", "]", "{", "}", "=", "+", "\\"];
+  
+  if (!input) return false; // chequear string vacio, undefined, null
+
+  // si es email valido, arrInput[0] deberia ser etiqueta y arrInput[1] el dominio
+  const arrInput = input.split("@");
+  const tag = arrInput[0];
+  const domain = arrInput[1];
+
+  if (arrInput.length !== 2) return false; // valida un y solo un arroba
+
+  if (tag.length < 2) return false; // etiqueta tiene al menos 2 caracteres
+
+  for (let i = 0; i < invalidChars.length; i++) { // etiqueta sin caracteres invalidos
+    const invalidChar = invalidChars[i];
+    if (tag.includes(invalidChar)) return false;
+  }
+  
+  const firstDotLocation = domain.indexOf(".");
+  const lastDotLocation = domain.lastIndexOf(".");
+  if (firstDotLocation === -1) return false; // domain al menos con un punto
+
+  if (domain.substring(0, firstDotLocation).length < 3) return false; // al menos tres chars antes del punto
+
+  if (domain.substring(lastDotLocation + 1).length < 2) return false // al menos dos chars despues del ultimo punto
+
+  return true; // al llegar hasta aca, paso las validaciones
+
+  // TODO: - chequear minimo dos caracteres después de CADA punto que hubiera
+  //       - chequear que no haya dos puntos seguidos
 }
