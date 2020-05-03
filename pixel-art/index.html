@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <label for="rows">Filas</label>
+        <input type="number" min="10" max="200" value="20" name="rows" id="rows">
+        <label for="cols">Columnas</label>
+        <input type="number" min="10" max="200" value="20" name="cols" id="cols">
+        <button type="button" id="refreshBtn">
+            <img src="res/refresh.png" alt="Recargar">
+        </button>
+
+        <label for="size">Tamaño de celda</label>
+        <input type="number" min="15" max="50" value="20" name="size" id="size">
+
+        <input type="color" name="foreColor" id="foreColor" value="#000000">
+        <input type="color" name="backColor" id="backColor" value="#FFFFFF">
+
+        <img class="tool" src="res/brush.png" alt="Pintar">
+        <img class="tool" src="res/eraser.png" alt="Borrar">
+        
+        <label for="showBorder">Mostrar grilla</label>
+        <input type="checkbox" name="showBorder" id="showBorder" checked>
+    </header>
+
+    <section class="canvas" id="canvas">
+        <div id="container" class="grid-container"></div>
+    </section>
+
+    <script src="script.js"></script>    
+</body>
+</html>
