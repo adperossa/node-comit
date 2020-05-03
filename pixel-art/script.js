@@ -59,7 +59,7 @@ function drawGrid() {
             }
         });
 
-        newDiv.addEventListener('click', function(ev) {
+        newDiv.addEventListener('mousedown', function(ev) {
             if (ev.button === 0) {
                 this.style.backgroundColor = getColor("fore");
             } else if (ev.button === 2) {
