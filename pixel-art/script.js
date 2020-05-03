@@ -59,6 +59,14 @@ function drawGrid() {
             }
         });
 
+        newDiv.addEventListener('click', function(ev) {
+            if (ev.button === 0) {
+                this.style.backgroundColor = getColor("fore");
+            } else if (ev.button === 2) {
+                this.style.backgroundColor = getColor("back");
+            }
+        });
+
         containerDiv.appendChild(newDiv);
     }
 }
