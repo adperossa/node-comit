@@ -44,6 +44,9 @@ function drawGrid() {
     for (let i = 0; i < rows * cols; i++) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("grid-item");
+        
+        //set html attribute to avoid triggering the drag gesture (works so-so)
+        newDiv.setAttribute("draggable", "false");
 
         newDiv.style.width = `${size}px`;
         newDiv.style.height = `${size}px`;
