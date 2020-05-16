@@ -59,7 +59,7 @@ function fetchData(url, callback) {
 
 
 function showResults(data) {
-  
+
   if (data.length === 0) {
 
     // Se recibió un array vacío, informarlo
@@ -71,7 +71,7 @@ function showResults(data) {
 
     // Iterar sobre el array recibido y para cada persona, armar un li y añadirlo
     // a la lista
-    data.map(person => {
+    data.forEach(person => {
       let li = document.createElement("li");
       li.innerText = `${person.name}, ${person.age} ${person.age > 1 ? "años" : "año"}`;
       resultsList.append(li);
