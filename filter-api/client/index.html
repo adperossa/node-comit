@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- usando watercss para estilado basico -->
+  <link rel="stylesheet" href="style.css">
+  <title>Busqueda de personas</title>
+</head>
+
+<body>
+  <form id="searchForm" action="">
+    <fieldset>
+      <legend>Búsqueda de personas</legend>
+
+      <label for="name">Filtrar por nombre</label>
+      <input type="text" name="name" id="name" placeholder="Cosme Fulanito">
+
+      <label for="minage">Filtrar por edad mínima</label>
+      <input type="number" name="minage" id="minage" min="0" placeholder="18">
+
+      <p>
+        <input type="checkbox" name="caseSensitive" id="caseSensitive">
+        <label for="caseSensitive">Distinguir mayúsculas y minúsculas</label>
+      </p>
+
+      <p>
+        <input type="checkbox" name="partial" id="partial">
+        <label for="partial">Incluir coincidencias parciales</label>
+      </p>
+
+      <input type="submit" value="Buscar" id="searchBtn">
+
+    </fieldset>
+  </form>
+
+  <fieldset>
+    <legend>Resultados</legend>
+    <p id="results"></p>
+  </fieldset>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
