@@ -1,5 +1,5 @@
 // Definicion API
-const endpoint = "http://localhost:3000/person?";
+const endpoint = "/person?";
 
 // Seleccion DOM
 const form = document.getElementById("searchForm");
